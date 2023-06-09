@@ -1,0 +1,12 @@
+ALTER TABLE cat
+ADD COLUMN IF NOT EXISTS tail INTEGER;
+
+Drop TABLE IF EXISTS flea;
+
+CREATE TABLE flea
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30),
+    cat_id BIGINT,
+    FOREIGN KEY (cat_id) REFERENCES cat(id)
+);

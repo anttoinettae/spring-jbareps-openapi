@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS owner CASCADE;
+
+CREATE TABLE owner
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30),
+    birth_date DATE
+);
+
+DROP TABLE IF EXISTS cat;
+
+CREATE TABLE cat
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30),
+    birth_date DATE,
+    breed VARCHAR(30),
+    owner_id BIGINT,
+    FOREIGN KEY(owner_id)
+        REFERENCES owner(id)
+);
